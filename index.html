@@ -1,0 +1,67 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Joshua Butts</h1>
+        <p>Web Developer | Beginner Coder</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello my name is Joshua Butts, this is my second attempt at creating a working website. Please press the link under "project 1" and give me feedback on if the link worked successfully.</p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project" id="project1">
+            <h3>Project 1</h3>
+            <p>Link to website 1.</p>
+            <button class="btn">
+                <a href="https://joshb452github.io/First-Project/#about" target="_blank">View Project</a>
+            </button>
+        </div>
+        <div class="project" id="project2">
+            <h3>Project 2</h3>
+            <p>Description of another project.</p>
+            <button class="btn">
+                <a href="#project2">View Project</a>
+            </button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: Joshuabutts766@gmail.com</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Joshua Butts</p>
+    </footer>
+
+    <script>
+        const projects = document.querySelectorAll('.project');
+
+        const handleScroll = () => {
+            projects.forEach(project => {
+                const rect = project.getBoundingClientRect();
+                // Check if the project is in view
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    project.classList.add('fade-in');
+                }
+            });
+        };
+
+        // Add scroll event listener to check on scroll
+        window.addEventListener('scroll', handleScroll);
+
+        // Run the function on load as well to show projects that are already in view
+        window.onload = handleScroll;
+    </script>
+</body>
+</html>
